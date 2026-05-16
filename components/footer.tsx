@@ -37,7 +37,7 @@ export function Footer() {
 
   return (
     <footer className="bg-secondary/50 border-t border-border">
-      <div className="container-wide section-padding">
+      <div className="container-wide py-16 md:py-20 lg:py-24">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-8">
           {/* Brand Column */}
           <motion.div
