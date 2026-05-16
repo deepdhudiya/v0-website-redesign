@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { ArrowUpRight, Linkedin, Instagram, Twitter, Facebook } from "lucide-react"
 
@@ -48,12 +49,14 @@ export function Footer() {
             className="col-span-2 md:col-span-4 lg:col-span-4"
           >
             <Link href="/" className="inline-block mb-4 sm:mb-5">
-              <span className="text-xl font-semibold tracking-tight text-foreground">
-                Dhudiya
-              </span>
-              <span className="text-xl font-light tracking-tight text-muted-foreground ml-1">
-                Entertainment
-              </span>
+              <Image
+                src="https://dhudiya.com/themes/images/logo.svg"
+                alt="Dhudiya Entertainment"
+                width={180}
+                height={50}
+                className="h-auto w-auto"
+                priority
+              />
             </Link>
             <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed max-w-sm mb-3 sm:mb-4">
               A powerful portfolio of iconic entertainment brands. We bring people, 
