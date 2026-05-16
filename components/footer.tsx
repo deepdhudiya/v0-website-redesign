@@ -38,14 +38,14 @@ export function Footer() {
   return (
     <footer className="bg-secondary/50 border-t border-border">
       <div className="container-wide section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-8">
           {/* Brand Column */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-4"
+            className="sm:col-span-2 lg:col-span-4"
           >
             <Link href="/" className="inline-block mb-6">
               <span className="text-xl font-semibold tracking-tight text-foreground">
@@ -82,7 +82,7 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="lg:col-span-2"
+            className="sm:col-span-1 lg:col-span-2"
           >
             <h4 className="text-sm font-semibold text-foreground mb-4 uppercase tracking-wider">
               Company
@@ -106,7 +106,7 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="lg:col-span-2"
+            className="sm:col-span-1 lg:col-span-2"
           >
             <h4 className="text-sm font-semibold text-foreground mb-4 uppercase tracking-wider">
               Brands
@@ -130,7 +130,7 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="lg:col-span-2"
+            className="sm:col-span-2 lg:col-span-2"
           >
             <h4 className="text-sm font-semibold text-foreground mb-4 uppercase tracking-wider">
               Support
@@ -161,13 +161,13 @@ export function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-16 pt-8 border-t border-border"
+          className="mt-12 sm:mt-16 pt-8 border-t border-border"
         >
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-muted-foreground text-center md:text-left">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
+            <p className="text-sm text-muted-foreground text-center sm:text-left order-2 sm:order-1">
               TM & {currentYear} Dhudiya Entertainment Private Ltd. All Rights Reserved.
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground text-center sm:text-right order-1 sm:order-2">
               All trademarks are the property of their respective owners.
             </p>
           </div>
