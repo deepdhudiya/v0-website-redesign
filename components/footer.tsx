@@ -152,34 +152,7 @@ export function Footer() {
             </ul>
           </motion.div>
 
-          {/* Newsletter */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="lg:col-span-2"
-          >
-            <h4 className="text-sm font-semibold text-foreground mb-4 uppercase tracking-wider">
-              Stay Updated
-            </h4>
-            <p className="text-sm text-muted-foreground mb-4">
-              Get the latest news and updates from Dhudiya Entertainment.
-            </p>
-            <form className="flex flex-col gap-3">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="px-4 py-2.5 bg-background border border-border rounded-lg text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-              />
-              <button
-                type="submit"
-                className="px-4 py-2.5 bg-primary text-primary-foreground text-sm font-medium rounded-lg hover:bg-primary/90 transition-colors"
-              >
-                Subscribe
-              </button>
-            </form>
-          </motion.div>
+
         </div>
 
         {/* Bottom Bar */}
