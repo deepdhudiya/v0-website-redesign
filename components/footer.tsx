@@ -37,15 +37,15 @@ export function Footer() {
 
   return (
     <footer className="bg-secondary/50 border-t border-border">
-      <div className="container-wide py-16 md:py-20 lg:py-24">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-8">
+      <div className="container-wide px-4 sm:px-6 lg:px-8 py-12 sm:py-14 md:py-16 lg:py-20">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-8">
           {/* Brand Column */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="sm:col-span-2 lg:col-span-4"
+            className="col-span-2 md:col-span-4 lg:col-span-4"
           >
             <Link href="/" className="inline-block mb-6">
               <span className="text-xl font-semibold tracking-tight text-foreground">
@@ -55,12 +55,12 @@ export function Footer() {
                 Entertainment
               </span>
             </Link>
-            <p className="text-muted-foreground text-sm leading-relaxed max-w-sm mb-6">
+            <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed max-w-sm mb-4 sm:mb-6">
               A powerful portfolio of iconic entertainment brands. We bring people, 
               technology, and the best storytellers together to drive culture and 
               meaningful connection.
             </p>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
@@ -68,9 +68,9 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="w-10 h-10 flex items-center justify-center rounded-full bg-muted hover:bg-primary hover:text-primary-foreground text-muted-foreground transition-all duration-300"
+                  className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-muted hover:bg-primary hover:text-primary-foreground text-muted-foreground transition-all duration-300"
                 >
-                  <social.icon className="w-4 h-4" />
+                  <social.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </a>
               ))}
             </div>
@@ -82,12 +82,12 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="sm:col-span-1 lg:col-span-2"
+            className="col-span-1 md:col-span-1 lg:col-span-2"
           >
-            <h4 className="text-sm font-semibold text-foreground mb-4 uppercase tracking-wider">
+            <h4 className="text-xs sm:text-sm font-semibold text-foreground mb-3 sm:mb-4 uppercase tracking-wider">
               Company
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
                   <Link
@@ -106,12 +106,12 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="sm:col-span-1 lg:col-span-2"
+            className="col-span-1 md:col-span-1 lg:col-span-2"
           >
-            <h4 className="text-sm font-semibold text-foreground mb-4 uppercase tracking-wider">
+            <h4 className="text-xs sm:text-sm font-semibold text-foreground mb-3 sm:mb-4 uppercase tracking-wider">
               Brands
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               {footerLinks.brands.map((link) => (
                 <li key={link.label}>
                   <Link
@@ -130,12 +130,12 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="sm:col-span-2 lg:col-span-2"
+            className="col-span-2 md:col-span-2 lg:col-span-2"
           >
-            <h4 className="text-sm font-semibold text-foreground mb-4 uppercase tracking-wider">
+            <h4 className="text-xs sm:text-sm font-semibold text-foreground mb-3 sm:mb-4 uppercase tracking-wider">
               Support
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               {footerLinks.support.map((link) => (
                 <li key={link.label}>
                   <Link
@@ -161,13 +161,13 @@ export function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-12 sm:mt-16 pt-8 border-t border-border"
+          className="mt-8 sm:mt-10 md:mt-12 pt-6 sm:pt-8 border-t border-border"
         >
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
-            <p className="text-sm text-muted-foreground text-center sm:text-left order-2 sm:order-1">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
+            <p className="text-xs sm:text-sm text-muted-foreground text-center sm:text-left order-2 sm:order-1">
               TM & {currentYear} Dhudiya Entertainment Private Ltd. All Rights Reserved.
             </p>
-            <p className="text-sm text-muted-foreground text-center sm:text-right order-1 sm:order-2">
+            <p className="text-xs sm:text-sm text-muted-foreground text-center sm:text-right order-1 sm:order-2">
               All trademarks are the property of their respective owners.
             </p>
           </div>
