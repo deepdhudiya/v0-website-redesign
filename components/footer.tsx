@@ -37,8 +37,8 @@ export function Footer() {
 
   return (
     <footer className="bg-secondary/50 border-t border-border">
-      <div className="container-wide px-4 sm:px-6 lg:px-8 py-12 sm:py-14 md:py-16 lg:py-20">
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-8">
+      <div className="container-wide px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-14 lg:py-16">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-6">
           {/* Brand Column */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -47,7 +47,7 @@ export function Footer() {
             transition={{ duration: 0.5 }}
             className="col-span-2 md:col-span-4 lg:col-span-4"
           >
-            <Link href="/" className="inline-block mb-6">
+            <Link href="/" className="inline-block mb-4 sm:mb-5">
               <span className="text-xl font-semibold tracking-tight text-foreground">
                 Dhudiya
               </span>
@@ -55,7 +55,7 @@ export function Footer() {
                 Entertainment
               </span>
             </Link>
-            <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed max-w-sm mb-4 sm:mb-6">
+            <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed max-w-sm mb-3 sm:mb-4">
               A powerful portfolio of iconic entertainment brands. We bring people, 
               technology, and the best storytellers together to drive culture and 
               meaningful connection.
