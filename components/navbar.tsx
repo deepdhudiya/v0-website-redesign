@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -47,19 +48,20 @@ export function Navbar() {
       <div className="container-wide">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="relative z-10">
+          <Link href="/" className="relative z-10 flex-shrink-0">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex items-center gap-2"
             >
-              <span className="text-xl font-semibold tracking-tight text-foreground">
-                Dhudiya
-              </span>
-              <span className="text-xl font-light tracking-tight text-muted-foreground">
-                Entertainment
-              </span>
+              <Image
+                src="https://dhudiya.com/themes/images/logo.svg"
+                alt="Dhudiya Entertainment"
+                width={150}
+                height={40}
+                className="h-8 w-auto"
+                priority
+              />
             </motion.div>
           </Link>
 
@@ -154,9 +156,17 @@ export function Navbar() {
             animate={{ opacity: 1, height: "100vh" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 top-0 bg-background z-40 lg:hidden"
+            className="fixed inset-0 top-0 bg-background z-40 lg:hidden overflow-y-auto"
           >
-            <div className="flex flex-col items-center justify-center h-full gap-6">
+            <div className="flex flex-col items-center justify-center min-h-screen gap-6 px-6 pt-24 pb-12">
+              {/* Close Button */}
+              <button
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="absolute top-8 right-6 p-2 text-foreground hover:bg-secondary rounded-lg transition-colors"
+                aria-label="Close menu"
+              >
+                <X className="w-6 h-6" />
+              </button>
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.label}
