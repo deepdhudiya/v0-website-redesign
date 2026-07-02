@@ -42,14 +42,30 @@ export function BrandCarousel() {
   useEffect(() => {
     if (!autoScroll) return
 
-    const timer = setTimeout(() => {
-      const carousel = document.getElementById("brand-carousel")
-      if (carousel) {
-        carousel.scrollLeft += 1
-      }
-    }, 20)
+    const carousel = document.getElementById("brand-carousel")
+    if (!carousel) return
 
-    return () => clearTimeout(timer)
+    let currentScroll = 0
+    let direction = 1 // 1 for forward, -1 for backward
+
+    const scroll = () => {
+      if (!autoScroll || !carousel) return
+
+      currentScroll += direction * 1.5
+      carousel.scrollLeft = currentScroll
+
+      // Reset scroll for infinite loop
+      if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth - 50) {
+        currentScroll = 0
+        carousel.scrollLeft = 0
+      }
+
+      requestAnimationFrame(scroll)
+    }
+
+    const animationId = requestAnimationFrame(scroll)
+
+    return () => cancelAnimationFrame(animationId)
   }, [autoScroll])
 
   return (
