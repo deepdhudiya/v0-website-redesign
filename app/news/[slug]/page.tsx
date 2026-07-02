@@ -4,6 +4,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowLeft, Calendar, User } from "lucide-react"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
 
 const articleData = {
   slug: "dhudiya-announces-new-film",
@@ -28,7 +30,9 @@ This announcement comes as part of Dhudiya's continued expansion into premium co
 
 export default function ArticleDetailPage() {
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <Navbar />
+      <div className="min-h-screen bg-background">
       <div className="container-wide px-4 sm:px-6 lg:px-8 py-12">
         <motion.div
           initial={{ opacity: 0, y: -10 }}
@@ -99,6 +103,8 @@ export default function ArticleDetailPage() {
           ))}
         </motion.div>
       </div>
-    </div>
+      </div>
+      <Footer />
+    </>
   )
 }

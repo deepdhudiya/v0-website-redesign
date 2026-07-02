@@ -4,6 +4,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Mail, Globe, Linkedin, Facebook, Instagram, Twitter, ArrowLeft } from "lucide-react"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
 
 const brandData = {
   slug: "dhudiya-pictures",
@@ -22,7 +24,9 @@ const brandData = {
 
 export default function BrandDetailPage() {
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <Navbar />
+      <div className="min-h-screen bg-background">
       <div className="container-wide px-4 sm:px-6 lg:px-8 py-12">
         <motion.div
           initial={{ opacity: 0, y: -10 }}
@@ -112,6 +116,8 @@ export default function BrandDetailPage() {
           </p>
         </motion.div>
       </div>
-    </div>
+      </div>
+      <Footer />
+    </>
   )
 }
