@@ -73,7 +73,7 @@ export function BrandCarousel() {
         {/* Carousel Container */}
         <div
           id="brand-carousel"
-          className="flex gap-6 overflow-x-auto pb-4 scroll-smooth"
+          className="flex gap-8 sm:gap-10 md:gap-12 overflow-x-auto pb-4 scroll-smooth justify-center"
           style={{
             scrollBehavior: "smooth",
             WebkitOverflowScrolling: "touch",
@@ -92,37 +92,39 @@ export function BrandCarousel() {
               transition={{ duration: 0.5 }}
               className="flex-shrink-0 group"
             >
-              <div className="w-32 sm:w-40 md:w-48 h-32 sm:h-40 md:h-48 bg-card border border-border rounded-2xl p-6 sm:p-8 flex flex-col items-center justify-center hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10">
-                {/* Logo placeholder with fallback */}
-                <div className="w-20 h-20 sm:w-24 sm:h-24 mb-4 bg-gradient-to-br from-primary/20 to-primary/5 rounded-xl flex items-center justify-center overflow-hidden">
-                  <img
-                    src={brand.logo}
-                    alt={brand.name}
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23f0f0f0' width='100' height='100'/%3E%3C/svg%3E"
-                    }}
-                  />
-                </div>
-
-                {/* Brand Info */}
-                <h3 className="font-semibold text-center text-sm sm:text-base text-foreground line-clamp-2 mb-2">
-                  {brand.name}
-                </h3>
-                <p className="text-xs sm:text-sm text-muted-foreground text-center">
-                  {brand.description}
-                </p>
+              {/* Logo only - no card background */}
+              <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 flex items-center justify-center overflow-hidden hover:opacity-80 transition-all duration-300">
+                <img
+                  src={brand.logo}
+                  alt={brand.name}
+                  className="w-full h-full object-contain"
+                  onError={(e) => {
+                    e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23f0f0f0' width='100' height='100'/%3E%3C/svg%3E"
+                  }}
+                />
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Scroll Hint */}
-        <div className="mt-6 sm:mt-8 flex items-center justify-center">
-          <p className="text-xs sm:text-sm text-muted-foreground text-center">
-            Auto-scrolling carousel • Hover or touch to pause
-          </p>
-        </div>
+        {/* View All Brands Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-12 sm:mt-16 flex items-center justify-center"
+        >
+          <a
+            href="/brands"
+            className="inline-flex items-center gap-2 px-8 sm:px-10 py-3 sm:py-3.5 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/30"
+          >
+            View All Brands
+            <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+        </motion.div>
       </div>
 
       {/* Custom scrollbar styling */}
