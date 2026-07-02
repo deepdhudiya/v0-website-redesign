@@ -1,219 +1,139 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { motion } from "framer-motion"
-import { ArrowUpRight, Linkedin, Instagram, Twitter, Facebook } from "lucide-react"
+import { Linkedin, Facebook, Youtube } from "lucide-react"
 
-const footerLinks = {
-  company: [
-    { label: "About Us", href: "/about" },
-    { label: "Leadership", href: "/leadership" },
-    { label: "Careers", href: "/careers" },
-    { label: "Press", href: "#" },
-  ],
-  brands: [
-    { label: "Dhudiya Pictures", href: "/brands#pictures" },
-    { label: "Dhudiya Music Group", href: "/brands#music" },
-    { label: "Dhudiya Games", href: "/brands#games" },
-    { label: "Phantastic Studioz", href: "/brands#phantastic" },
-  ],
-  resources: [
-    { label: "Contact Us", href: "/contact" },
-    { label: "Support", href: "/support" },
-    { label: "Help & FAQ", href: "#" },
-    { label: "Blog", href: "#" },
-  ],
-  legal: [
-    { label: "Privacy Policy", href: "https://policies.dhudiya.com/privacy-policy/", external: true },
-    { label: "Terms of Use", href: "https://policies.dhudiya.com/terms-of-use/", external: true },
-    { label: "Cookie Policy", href: "#", external: true },
-    { label: "Accessibility", href: "#" },
-  ],
-}
+const mainNavLinks = [
+  { label: "About", href: "/about" },
+  { label: "Brands", href: "/brands" },
+  { label: "Impact", href: "#" },
+  { label: "Careers", href: "/careers" },
+  { label: "Contact Us", href: "/contact" },
+]
+
+const legalLinks = [
+  { label: "Terms of Use", href: "https://policies.dhudiya.com/terms-of-use/", external: true },
+  { label: "Privacy Policy", href: "https://policies.dhudiya.com/privacy-policy/", external: true },
+  { label: "Cookie Policy", href: "#", external: true },
+  { label: "Accessibility", href: "#" },
+]
 
 const socialLinks = [
-  { icon: Facebook, href: "https://www.facebook.com/Dhudiya/", label: "Facebook" },
-  { icon: Instagram, href: "https://www.instagram.com/dhudiyaent", label: "Instagram" },
-  { icon: Twitter, href: "https://twitter.com/dhudiyaent", label: "Twitter" },
   { icon: Linkedin, href: "https://in.linkedin.com/company/dhudiya", label: "LinkedIn" },
+  { icon: Facebook, href: "https://www.facebook.com/Dhudiya/", label: "Facebook" },
+  { icon: Youtube, href: "https://www.youtube.com/c/Dhudiya", label: "YouTube" },
 ]
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="relative bg-background border-t border-border">
+    <footer className="bg-background border-t border-border">
       <div className="container-wide px-4 sm:px-6 lg:px-8">
         
-        {/* Main Footer Content */}
-        <div className="py-20 md:py-24 lg:py-28">
+        {/* Top Row - Logo, Navigation, Social */}
+        <div className="py-12 md:py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-12">
           
-          {/* Top Section - Brand Statement */}
+          {/* Left - Logo */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-20 md:mb-28"
+            transition={{ duration: 0.5 }}
+            className="flex-shrink-0"
           >
-            <div className="max-w-4xl">
-              <p className="text-base md:text-lg text-muted-foreground mb-6 leading-relaxed">
-                Dhudiya Entertainment is a powerhouse of iconic brands creating unforgettable content across film, music, games, and digital experiences. We connect cultures, inspire creativity, and bring stories to life globally.
-              </p>
-              <div className="h-px bg-gradient-to-r from-border via-primary/20 to-transparent" />
-            </div>
+            <Link href="/" className="inline-block">
+              <Image
+                src="https://dhudiya.com/themes/images/logo.svg"
+                alt="Dhudiya Entertainment"
+                width={160}
+                height={40}
+                className="h-10 w-auto"
+                priority
+              />
+            </Link>
           </motion.div>
 
-          {/* Navigation Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-12 md:gap-16 mb-20 md:mb-24">
-            
-            {/* Company */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0 }}
-            >
-              <h4 className="text-xs uppercase tracking-widest font-semibold text-foreground mb-8">Company</h4>
-              <ul className="space-y-4">
-                {footerLinks.company.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300 inline-flex items-center gap-2 group"
-                    >
-                      <span>{link.label}</span>
-                      <ArrowUpRight className="w-3 h-3 opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+          {/* Center - Main Navigation */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="flex flex-wrap justify-center md:justify-start gap-4 sm:gap-6 md:gap-8"
+          >
+            {mainNavLinks.map((link, index) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="text-sm md:text-base font-medium text-foreground hover:text-primary transition-colors duration-300"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </motion.div>
 
-            {/* Brands */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.05 }}
-            >
-              <h4 className="text-xs uppercase tracking-widest font-semibold text-foreground mb-8">Brands</h4>
-              <ul className="space-y-4">
-                {footerLinks.brands.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300 inline-flex items-center gap-2 group"
-                    >
-                      <span>{link.label}</span>
-                      <ArrowUpRight className="w-3 h-3 opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-
-            {/* Resources */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              <h4 className="text-xs uppercase tracking-widest font-semibold text-foreground mb-8">Resources</h4>
-              <ul className="space-y-4">
-                {footerLinks.resources.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300 inline-flex items-center gap-2 group"
-                    >
-                      <span>{link.label}</span>
-                      <ArrowUpRight className="w-3 h-3 opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-
-            {/* Legal */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-            >
-              <h4 className="text-xs uppercase tracking-widest font-semibold text-foreground mb-8">Legal</h4>
-              <ul className="space-y-4">
-                {footerLinks.legal.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      target={link.external ? "_blank" : undefined}
-                      rel={link.external ? "noopener noreferrer" : undefined}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300 inline-flex items-center gap-2 group"
-                    >
-                      <span>{link.label}</span>
-                      <ArrowUpRight className="w-3 h-3 opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          </div>
+          {/* Right - Social Icons */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex items-center justify-center md:justify-end gap-4 flex-shrink-0"
+          >
+            {socialLinks.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+                className="text-foreground hover:text-primary transition-colors duration-300"
+              >
+                <social.icon className="w-5 h-5" />
+              </a>
+            ))}
+          </motion.div>
         </div>
 
-        {/* Bottom Divider */}
+        {/* Divider */}
         <div className="h-px bg-border" />
 
-        {/* Footer Bottom */}
-        <div className="py-12 md:py-16">
+        {/* Bottom Row - Legal Links */}
+        <div className="py-8 md:py-10">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 mb-6 md:mb-8"
+          >
+            {legalLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
+                className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </motion.div>
+
+          {/* Copyright */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col md:flex-row md:items-center md:justify-between gap-8"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-center"
           >
-            
-            {/* Left - Copyright */}
-            <div>
-              <p className="text-xs text-muted-foreground">
-                © {currentYear} Dhudiya Entertainment Private Ltd.<br className="hidden sm:block" />
-                All rights reserved.
-              </p>
-            </div>
-
-            {/* Center - Social Links */}
-            <div className="flex items-center gap-4">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 0.05 * index }}
-                  whileHover={{ scale: 1.15, color: "var(--color-primary)" }}
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-300"
-                >
-                  <social.icon className="w-4 h-4" />
-                </motion.a>
-              ))}
-            </div>
-
-            {/* Right - Additional Link */}
-            <motion.a
-              href="#"
-              className="text-xs text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 group"
-              whileHover={{ x: 2 }}
-            >
-              Sitemap
-              <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all" />
-            </motion.a>
+            <p className="text-xs text-muted-foreground">
+              COPYRIGHT {currentYear} © DHUDIYA ENTERTAINMENT PRIVATE LTD. ALL RIGHTS RESERVED.
+            </p>
           </motion.div>
         </div>
       </div>
