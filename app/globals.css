@@ -112,7 +112,7 @@
     @apply bg-background text-foreground;
   }
   html {
-    /* scroll-behavior is managed via data-scroll-behavior attribute */
+    scroll-behavior: smooth;
   }
 }
 
