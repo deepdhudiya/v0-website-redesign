@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight, MapPin, Briefcase, Clock, Star, Users, Lightbulb, Trophy } from "lucide-react"
 import { SectionHeader } from "@/components/page-layout"
+import { openings } from "@/lib/careers-data"
 
 const benefits = [
   {
@@ -25,44 +26,6 @@ const benefits = [
     icon: Trophy,
     title: "Industry Impact",
     description: "Be part of projects that shape the entertainment landscape in India and beyond.",
-  },
-]
-
-const openings = [
-  {
-    id: "1",
-    title: "Creative Director",
-    department: "Dhudiya Pictures",
-    location: "Ahmedabad",
-    type: "Full-time",
-  },
-  {
-    id: "2",
-    title: "Music Producer",
-    department: "Dhudiya Music Group",
-    location: "Ahmedabad",
-    type: "Full-time",
-  },
-  {
-    id: "3",
-    title: "Game Developer",
-    department: "Dhudiya Games",
-    location: "Remote",
-    type: "Full-time",
-  },
-  {
-    id: "4",
-    title: "Marketing Manager",
-    department: "Corporate",
-    location: "Ahmedabad",
-    type: "Full-time",
-  },
-  {
-    id: "5",
-    title: "VFX Artist",
-    department: "Phantastic Studioz",
-    location: "Ahmedabad",
-    type: "Contract",
   },
 ]
 

@@ -4,77 +4,13 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { Calendar, ArrowRight, Clock } from "lucide-react"
 import { useState } from "react"
-
-interface NewsArticle {
-  id: string
-  title: string
-  excerpt: string
-  category: string
-  date: string
-  readTime: string
-  featured?: boolean
-}
-
-const newsArticles: NewsArticle[] = [
-  {
-    id: "music-publishing-upgrade",
-    title: "Music Publishing Is Now Upgraded Into Extreme Level",
-    excerpt: "Dhudiya Entertainment is to launch Gujarat's first independent music publishing company on the Music Digital Publishing platform named Dhudiya Music Publishing. It will be the beginning of a new concept on the music digital publishing platform.",
-    category: "Business",
-    date: "Sep 5, 2020",
-    readTime: "4 min read",
-    featured: true,
-  },
-  {
-    id: "games-division-launch",
-    title: "Dhudiya Entertainment Launches New Games Division to Expand on Diverse Content",
-    excerpt: "Dhudiya Games secures multiple distribution deals for mobile games. Dhudiya to leverage latest mobile technologies to provide unique entertainment experience.",
-    category: "Business",
-    date: "Jul 4, 2018",
-    readTime: "3 min read",
-    featured: true,
-  },
-  {
-    id: "new-studio-expansion",
-    title: "Phantastic Studioz Expands Post-Production Capabilities",
-    excerpt: "Our post-production studio has been a part of some world-class film restoration and VFX projects, now expanding to serve global clients.",
-    category: "Studios",
-    date: "Mar 15, 2019",
-    readTime: "5 min read",
-  },
-  {
-    id: "music-label-anniversary",
-    title: "Dhudiya Music Celebrates 3 Years of Musical Excellence",
-    excerpt: "Since launching in 2016 with 'Duru Duru', Dhudiya Music has become a cornerstone of the Gujarati music industry.",
-    category: "Music",
-    date: "Jun 20, 2019",
-    readTime: "4 min read",
-  },
-  {
-    id: "partnership-announcement",
-    title: "Strategic Partnership Announced with International Distributors",
-    excerpt: "Dhudiya Entertainment expands global reach with new distribution partnerships in the UK, Middle East, and Southeast Asia.",
-    category: "Business",
-    date: "Oct 12, 2019",
-    readTime: "3 min read",
-  },
-  {
-    id: "talent-acquisition",
-    title: "New Creative Leadership Joins Dhudiya Pictures",
-    excerpt: "Industry veterans join our film division to lead upcoming projects and expand our creative capabilities.",
-    category: "Company",
-    date: "Jan 8, 2020",
-    readTime: "2 min read",
-  },
-]
-
-const categories = ["All", "Business", "Music", "Studios", "Company"]
+import { newsArticles, newsCategories } from "@/lib/news-data"
 
 export function NewsList() {
   const [selectedCategory, setSelectedCategory] = useState("All")
 
-  const filteredArticles = selectedCategory === "All" 
-    ? newsArticles 
+  const filteredArticles = selectedCategory === "All"
+    ? newsArticles
     : newsArticles.filter(article => article.category === selectedCategory)
 
   const featuredArticles = filteredArticles.filter(article => article.featured)
@@ -91,7 +27,7 @@ export function NewsList() {
           transition={{ duration: 0.5 }}
           className="flex flex-wrap gap-2 mb-12"
         >
-          {categories.map((category) => (
+          {newsCategories.map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}

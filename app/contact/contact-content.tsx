@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useState } from "react"
-import { Mail, Briefcase, HelpCircle, MessageCircle, Send, CheckCircle } from "lucide-react"
+import { Mail, Briefcase, Circle as HelpCircle, MessageCircle, Send, CircleCheck as CheckCircle } from "lucide-react"
 
 export function ContactContent() {
   const [formStatus, setFormStatus] = useState<"idle" | "sending" | "sent">("idle")
@@ -45,8 +45,8 @@ export function ContactContent() {
       title: "Support",
       description: "Get help with your questions and concerns.",
       items: [
-        { label: "Help & FAQ", value: "/support", type: "link" },
-        { label: "Live Chat", value: "/support", type: "link" },
+        { label: "Help & FAQ", value: "/contact", type: "link" },
+        { label: "Live Chat", value: "/contact", type: "link" },
       ],
     },
   ]
