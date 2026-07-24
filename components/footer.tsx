@@ -19,7 +19,7 @@ const footerLinks = {
   ],
   support: [
     { label: "Contact Us", href: "/contact" },
-    { label: "Help & FAQ", href: "/contact" },
+    { label: "Help & FAQ", href: "/support" },
     { label: "Privacy Policy", href: "https://policies.dhudiya.com/privacy-policy/" },
     { label: "Terms of Use", href: "https://policies.dhudiya.com/terms-of-use/" },
   ],

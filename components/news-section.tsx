@@ -4,9 +4,31 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight, Calendar } from "lucide-react"
 import { SectionHeader } from "./page-layout"
-import { newsArticles } from "@/lib/news-data"
 
-const newsItems = newsArticles.slice(0, 2)
+interface NewsItem {
+  title: string
+  excerpt: string
+  category: string
+  date: string
+  href: string
+}
+
+const newsItems: NewsItem[] = [
+  {
+    title: "Music Publishing Is Now Upgraded Into Extreme Level",
+    excerpt: "Dhudiya Entertainment launches Gujarat's first independent music publishing company on the Music Digital Publishing platform named Dhudiya Music Publishing.",
+    category: "Business",
+    date: "Sep 5, 2020",
+    href: "/news/music-publishing-upgrade",
+  },
+  {
+    title: "Dhudiya Entertainment Launches New Games Division",
+    excerpt: "Dhudiya Games secures multiple distribution deals for mobile games, leveraging latest mobile technologies to provide unique entertainment experiences.",
+    category: "Business",
+    date: "Jul 4, 2018",
+    href: "/news/games-division-launch",
+  },
+]
 
 export function NewsSection() {
   return (
@@ -45,7 +67,7 @@ export function NewsSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Link href={`/news/${item.id}`}>
+              <Link href={item.href}>
                 <div className="group h-full bg-card border border-border rounded-2xl p-8 hover:border-foreground/20 hover:shadow-lg transition-all duration-300 hover-lift">
                   {/* Category & Date */}
                   <div className="flex items-center gap-4 mb-4">
